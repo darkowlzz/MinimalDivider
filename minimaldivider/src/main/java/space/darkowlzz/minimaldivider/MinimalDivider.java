@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ public class MinimalDivider extends LinearLayout {
 
     private TextView topTextView, bottomTextView;
     private View dividerView;
+    private ImageView topImageView, bottomImageView;
 
     private boolean topTextEnabled = false;
     private String topTextValue = "";
@@ -35,6 +37,15 @@ public class MinimalDivider extends LinearLayout {
     private int dividerLineHeight;
     private int dividerLineMarginTop;
     private int dividerLineMarginBottom;
+
+    private boolean topImageEnabled = false;
+    private int topImageSource;
+    private int topImageWidth;
+    private int topImageHeight;
+    private boolean bottomImageEnabled = false;
+    private int bottomImageSource;
+    private int bottomImageWidth;
+    private int bottomImageHeight;
 
     public MinimalDivider(Context context) {
         super(context);
@@ -81,13 +92,13 @@ public class MinimalDivider extends LinearLayout {
             bottomTextColor = a.getColor(R.styleable.MinimalDivider_bottomText_color, DEFAULT_TEXT_COLOR);
 
             dividerLineWidth = a.getDimensionPixelSize(R.styleable.MinimalDivider_dividerLine_width,
-                                                getDimensionResource(R.dimen.default_divider_width));
+                    getDimensionResource(R.dimen.default_divider_width));
             dividerLineHeight = a.getDimensionPixelSize(R.styleable.MinimalDivider_dividerLine_height,
-                                                getDimensionResource(R.dimen.default_divider_height));
+                    getDimensionResource(R.dimen.default_divider_height));
             dividerLineMarginTop = a.getDimensionPixelSize(R.styleable.MinimalDivider_dividerLine_marginTop,
-                                                getDimensionResource(R.dimen.default_divider_marginTop));
+                    getDimensionResource(R.dimen.default_divider_marginTop));
             dividerLineMarginBottom = a.getDimensionPixelSize(R.styleable.MinimalDivider_dividerLine_marginBottom,
-                                                getDimensionResource(R.dimen.default_divider_marginBottom));
+                    getDimensionResource(R.dimen.default_divider_marginBottom));
 
             if(!isInEditMode()) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -98,6 +109,16 @@ public class MinimalDivider extends LinearLayout {
                             .getColor(R.color.defaultDividerLineColor));
                 }
             }
+
+            topImageEnabled = a.getBoolean(R.styleable.MinimalDivider_topImage_enabled, false);
+            topImageSource = a.getResourceId(R.styleable.MinimalDivider_topImage_source, 0);
+            topImageWidth = a.getDimensionPixelSize(R.styleable.MinimalDivider_topImage_width, 0);
+            topImageHeight = a.getDimensionPixelSize(R.styleable.MinimalDivider_topImage_height, 0);
+
+            bottomImageEnabled = a.getBoolean(R.styleable.MinimalDivider_bottomImage_enabled, false);
+            bottomImageSource = a.getResourceId(R.styleable.MinimalDivider_bottomImage_source, 0);
+            bottomImageWidth = a.getDimensionPixelSize(R.styleable.MinimalDivider_bottomImage_width, 0);
+            bottomImageHeight = a.getDimensionPixelSize(R.styleable.MinimalDivider_bottomImage_height, 0);
 
         } finally {
             a.recycle();
@@ -110,6 +131,48 @@ public class MinimalDivider extends LinearLayout {
         topTextView = (TextView) findViewById(R.id.topText);
         dividerView = findViewById(R.id.divider);
         bottomTextView = (TextView) findViewById(R.id.bottomText);
+        topImageView = (ImageView) findViewById(R.id.topImage);
+        bottomImageView = (ImageView) findViewById(R.id.bottomImage);
+
+        if (topImageEnabled) {
+            topImageView.setVisibility(VISIBLE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                topImageView.setImageDrawable(getResources().getDrawable(topImageSource, context.getTheme()));
+            } else {
+                topImageView.setImageDrawable(getResources().getDrawable(topImageSource));
+            }
+
+            LayoutParams topImgParams = (LayoutParams) topImageView.getLayoutParams();
+            if (topImageWidth != 0) {
+                topImgParams.width = topImageWidth;
+            }
+            if (topImageHeight != 0) {
+                topImgParams.height = topImageHeight;
+            }
+            topImageView.setLayoutParams(topImgParams);
+        } else {
+            topImageView.setVisibility(GONE);
+        }
+
+        if (bottomImageEnabled) {
+            bottomImageView.setVisibility(VISIBLE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                bottomImageView.setImageDrawable(getResources().getDrawable(bottomImageSource, context.getTheme()));
+            } else {
+                bottomImageView.setImageDrawable(getResources().getDrawable(bottomImageSource));
+            }
+
+            LayoutParams btmImgParams = (LayoutParams) bottomImageView.getLayoutParams();
+            if (bottomImageWidth != 0) {
+                btmImgParams.width = bottomImageWidth;
+            }
+            if (bottomImageHeight != 0) {
+                btmImgParams.height = bottomImageHeight;
+            }
+            bottomImageView.setLayoutParams(btmImgParams);
+        } else {
+            bottomImageView.setVisibility(GONE);
+        }
 
         // Set text content
         topTextView.setText(topTextValue);

@@ -19,6 +19,16 @@
         <attr name="bottomText_style" format="reference"/>
         <attr name="bottomText_size" format="dimension"/>
         <attr name="bottomText_color" format="color"/>
+
+        <attr name="topImage_enabled" format="boolean"/>
+        <attr name="topImage_source" format="reference"/>
+        <attr name="topImage_width" format="dimension"/>
+        <attr name="topImage_height" format="dimension"/>
+
+        <attr name="bottomImage_enabled" format="boolean"/>
+        <attr name="bottomImage_source" format="reference"/>
+        <attr name="bottomImage_width" format="dimension"/>
+        <attr name="bottomImage_height" format="dimension"/>
     </declare-styleable>
 
 </resources>

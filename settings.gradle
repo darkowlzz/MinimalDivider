@@ -1,1 +1,1 @@
-include ':app', ':minimaldivider'
+include ':sample', ':minimaldivider'

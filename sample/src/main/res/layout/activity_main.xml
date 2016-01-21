@@ -14,6 +14,12 @@
     <space.darkowlzz.minimaldivider.MinimalDivider
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        minimaldivider:dividerLine_color="@android:color/holo_orange_dark"/>
+
+    <space.darkowlzz.minimaldivider.MinimalDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         minimaldivider:dividerLine_color="@android:color/holo_green_dark"
@@ -22,7 +28,15 @@
         minimaldivider:topText_style="@android:style/TextAppearance.Large"
         minimaldivider:bottomText_enabled="true"
         minimaldivider:bottomText_value="Yang"
-        minimaldivider:bottomText_style="@android:style/TextAppearance.Small"/>
+        minimaldivider:bottomText_style="@android:style/TextAppearance.Small"
+        minimaldivider:topImage_enabled="true"
+        minimaldivider:topImage_source="@drawable/ic_sun"
+        minimaldivider:topImage_width="35dp"
+        minimaldivider:topImage_height="35dp"
+        minimaldivider:bottomImage_enabled="true"
+        minimaldivider:bottomImage_source="@drawable/ic_moon"
+        minimaldivider:bottomImage_width="35dp"
+        minimaldivider:bottomImage_height="35dp"/>
 
     <space.darkowlzz.minimaldivider.MinimalDivider
         android:layout_width="match_parent"

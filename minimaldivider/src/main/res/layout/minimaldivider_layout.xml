@@ -8,10 +8,22 @@
         android:text="Above separator"
         android:layout_gravity="center_horizontal"/>
 
+    <ImageView
+        android:id="@+id/topImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
     <View
         android:id="@+id/divider"
         android:layout_width="75dp"
         android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <ImageView
+        android:id="@+id/bottomImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
