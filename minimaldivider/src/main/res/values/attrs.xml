@@ -4,6 +4,9 @@
     <declare-styleable name="MinimalDivider">
         <attr name="topText_enabled" format="boolean"/>
         <attr name="topText_value" format="string"/>
+        <attr name="topText_style" format="reference"/>
+        <attr name="topText_size" format="dimension"/>
+        <attr name="topText_color" format="color"/>
         
         <attr name="dividerLine_color" format="color"/>
         <attr name="dividerLine_width" format="dimension"/>
@@ -13,6 +16,9 @@
         
         <attr name="bottomText_enabled" format="boolean"/>
         <attr name="bottomText_value" format="string"/>
+        <attr name="bottomText_style" format="reference"/>
+        <attr name="bottomText_size" format="dimension"/>
+        <attr name="bottomText_color" format="color"/>
     </declare-styleable>
 
 </resources>

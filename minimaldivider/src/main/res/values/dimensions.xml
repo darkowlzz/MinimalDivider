@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_divider_width">75dp</dimen>
+    <dimen name="default_divider_height">2dp</dimen>
+    <dimen name="default_divider_marginTop">10dp</dimen>
+    <dimen name="default_divider_marginBottom">10dp</dimen>
+</resources>
