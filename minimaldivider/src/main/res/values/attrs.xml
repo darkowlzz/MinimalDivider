@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MinimalDivider">
+        <attr name="topText_enabled" format="boolean"/>
+        <attr name="topText_value" format="string"/>
+        
+        <attr name="dividerLine_color" format="color"/>
+        <attr name="dividerLine_width" format="dimension"/>
+        <attr name="dividerLine_height" format="dimension"/>
+        <attr name="dividerLine_marginTop" format="dimension"/>
+        <attr name="dividerLine_marginBottom" format="dimension"/>
+        
+        <attr name="bottomText_enabled" format="boolean"/>
+        <attr name="bottomText_value" format="string"/>
+    </declare-styleable>
+
+</resources>
