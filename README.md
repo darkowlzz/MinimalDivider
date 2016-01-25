@@ -1,5 +1,7 @@
 # MinimalDivider
 
+[![Download](https://api.bintray.com/packages/darkowlzz/maven/MinimalDivider/images/download.svg) ](https://bintray.com/darkowlzz/maven/MinimalDivider/_latestVersion)
+
 A minimalist divider view component for android. Create simple and elegant horizontal dividers.
 
 ![Demo](/images/demo_screenshot.png)
@@ -26,11 +28,11 @@ Learn more about the available view attributes from [here](https://github.com/da
 
 ## Gradle
 
-Coming soon.
+Add to build.gradle dependencies
 
 ```groovy
 dependencies {
-  compile 'space.darkowlzz:minimaldivider:unknown'
+  compile 'space.darkowlzz:minimaldivider:0.1.0'
 }
 ```
 

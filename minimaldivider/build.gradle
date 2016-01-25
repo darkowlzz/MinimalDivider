@@ -1,5 +1,29 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'MinimalDivider'
+
+    publishedGroupId = 'space.darkowlzz'
+    libraryName = 'MinimalDivider'
+    artifact = 'minimaldivider'
+
+    libraryDescription = 'A minimalist divider view component for android. Create simple and elegant horizontal dividers.'
+
+    siteUrl = ''
+    gitUrl = 'https://github.com/darkowlzz/MinimalDivider.git'
+
+    libraryVersion = '0.1.0'
+
+    developerId = 'darkowlzz'
+    developerName = 'Sunny (darkowlzz)'
+    developerEmail = 'me@darkowlzz.space'
+
+    licenseName = 'MIT'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ['MIT']
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -23,3 +47,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
