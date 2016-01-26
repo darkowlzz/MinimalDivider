@@ -22,6 +22,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:hamcrest-library:1.1'
+    testCompile 'org.robolectric:robolectric:3.0'
+
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile project(':minimaldivider')
     //compile 'space.darkowlzz:minimaldivider:0.1.0'
