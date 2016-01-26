@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SectionDividerView</string>
+
+    <string name="topText_value4">Above</string>
+    <string name="topText_value3">Sun</string>
+    <string name="topText_value2">Yang</string>
+
+    <string name="bottomText_value2">Yang</string>
+    <string name="bottomText_value3">Moon</string>
+    <string name="bottomText_value4">Below</string>
 </resources>

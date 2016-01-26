@@ -22,12 +22,12 @@ public class MinimalDivider extends LinearLayout {
     private ImageView topImageView, bottomImageView;
 
     private boolean topTextEnabled = false;
-    private String topTextValue = "";
+    private String topTextValue;
     private int topTextStyle;
     private float topTextSize;
     private int topTextColor;
     private boolean bottomTextEnabled = false;
-    private String bottomTextValue = "";
+    private String bottomTextValue;
     private int bottomTextStyle;
     private float bottomTextSize;
     private int bottomTextColor;
