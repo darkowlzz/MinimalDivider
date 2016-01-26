@@ -47,6 +47,101 @@ public class MinimalDivider extends LinearLayout {
     private int bottomImageWidth;
     private int bottomImageHeight;
 
+    public boolean isBottomImageEnabled() {
+        return bottomImageEnabled;
+    }
+
+    public int getBottomImageHeight() {
+        return bottomImageHeight;
+    }
+
+    public int getBottomImageSource() {
+        return bottomImageSource;
+    }
+
+    public int getBottomImageWidth() {
+        return bottomImageWidth;
+    }
+
+    public int getBottomTextColor() {
+        return bottomTextColor;
+    }
+
+    public boolean isBottomTextEnabled() {
+        return bottomTextEnabled;
+    }
+
+    public float getBottomTextSize() {
+        return bottomTextSize;
+    }
+
+    public int getBottomTextStyle() {
+        return bottomTextStyle;
+    }
+
+    public String getBottomTextValue() {
+        return bottomTextValue;
+    }
+
+    public int getDividerLineColor() {
+        return dividerLineColor;
+    }
+
+    public int getDividerLineHeight() {
+        return dividerLineHeight;
+    }
+
+    public int getDividerLineMarginBottom() {
+        return dividerLineMarginBottom;
+    }
+
+    public int getDividerLineMarginTop() {
+        return dividerLineMarginTop;
+    }
+
+    public int getDividerLineWidth() {
+        return dividerLineWidth;
+    }
+
+    public boolean isTopImageEnabled() {
+        return topImageEnabled;
+    }
+
+    public int getTopImageHeight() {
+        return topImageHeight;
+    }
+
+    public int getTopImageSource() {
+        return topImageSource;
+    }
+
+    public int getTopImageWidth() {
+        return topImageWidth;
+    }
+
+    public int getTopTextColor() {
+        return topTextColor;
+    }
+
+    public boolean isTopTextEnabled() {
+        return topTextEnabled;
+    }
+
+    public float getTopTextSize() {
+        return topTextSize;
+    }
+
+    public int getTopTextStyle() {
+        return topTextStyle;
+    }
+
+    public String getTopTextValue() {
+        return topTextValue;
+    }
+
+
+    /* Constructors */
+
     public MinimalDivider(Context context) {
         super(context);
         LayoutInflater.from(context).inflate(R.layout.minimaldivider_layout, this);

@@ -12,12 +12,14 @@
     tools:context="space.darkowlzz.sectiondividerview.MainActivity">
 
     <space.darkowlzz.minimaldivider.MinimalDivider
+        android:id="@+id/divider1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         minimaldivider:dividerLine_color="@android:color/holo_orange_dark"/>
 
     <space.darkowlzz.minimaldivider.MinimalDivider
+        android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -39,6 +41,7 @@
         minimaldivider:bottomImage_height="35dp"/>
 
     <space.darkowlzz.minimaldivider.MinimalDivider
+        android:id="@+id/divider3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -51,6 +54,7 @@
         minimaldivider:dividerLine_width="220dp"/>
 
     <space.darkowlzz.minimaldivider.MinimalDivider
+        android:id="@+id/divider4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -68,6 +72,7 @@
         minimaldivider:dividerLine_marginBottom="30dp"/>
 
     <space.darkowlzz.minimaldivider.MinimalDivider
+        android:id="@+id/divider5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
