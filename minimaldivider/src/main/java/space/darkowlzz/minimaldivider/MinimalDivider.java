@@ -47,6 +47,9 @@ public class MinimalDivider extends LinearLayout {
     private int bottomImageWidth;
     private int bottomImageHeight;
 
+
+    /** Getters **/
+
     public boolean isBottomImageEnabled() {
         return bottomImageEnabled;
     }
@@ -163,13 +166,45 @@ public class MinimalDivider extends LinearLayout {
         initViews(context, attrs);
     }
 
+
+    /** View initializer **/
+
+    private void initViews(final Context context, AttributeSet attrs) {
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.MinimalDivider, 0, 0);
+        readStyledAttributes(a);
+
+        LayoutInflater.from(context).inflate(R.layout.minimaldivider_layout, this);
+
+        setOrientation(VERTICAL);
+
+        topTextView = (TextView) findViewById(R.id.topText);
+        dividerView = findViewById(R.id.divider);
+        bottomTextView = (TextView) findViewById(R.id.bottomText);
+        topImageView = (ImageView) findViewById(R.id.topImage);
+        bottomImageView = (ImageView) findViewById(R.id.bottomImage);
+
+        setupTopImageView();
+        setupBottomImageView();
+        setupTextViews();
+        setupDividerView();
+    }
+
+
+    /** Helper methods **/
+
     private int getDimensionResource(int res) {
         return getResources().getDimensionPixelSize(res);
     }
 
-    private void initViews(final Context context, AttributeSet attrs) {
-        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.MinimalDivider, 0, 0);
+    private int getColorResource(int res) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return getResources().getColor(res, getContext().getTheme());
+        } else {
+            return getResources().getColor(res);
+        }
+    }
 
+    private void readStyledAttributes(TypedArray a) {
         try {
             topTextEnabled = a.getBoolean(R.styleable.MinimalDivider_topText_enabled, false);
             bottomTextEnabled = a.getBoolean(R.styleable.MinimalDivider_bottomText_enabled, false);
@@ -195,15 +230,7 @@ public class MinimalDivider extends LinearLayout {
             dividerLineMarginBottom = a.getDimensionPixelSize(R.styleable.MinimalDivider_dividerLine_marginBottom,
                     getDimensionResource(R.dimen.default_divider_marginBottom));
 
-            if(!isInEditMode()) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    dividerLineColor = a.getColor(R.styleable.MinimalDivider_dividerLine_color, getResources()
-                            .getColor(R.color.defaultDividerLineColor, getContext().getTheme()));
-                } else {
-                    dividerLineColor = a.getColor(R.styleable.MinimalDivider_dividerLine_color, getResources()
-                            .getColor(R.color.defaultDividerLineColor));
-                }
-            }
+            dividerLineColor = a.getColor(R.styleable.MinimalDivider_dividerLine_color, getColorResource(R.color.defaultDividerLineColor));
 
             topImageEnabled = a.getBoolean(R.styleable.MinimalDivider_topImage_enabled, false);
             topImageSource = a.getResourceId(R.styleable.MinimalDivider_topImage_source, 0);
@@ -218,21 +245,13 @@ public class MinimalDivider extends LinearLayout {
         } finally {
             a.recycle();
         }
+    }
 
-        LayoutInflater.from(context).inflate(R.layout.minimaldivider_layout, this);
-
-        setOrientation(VERTICAL);
-
-        topTextView = (TextView) findViewById(R.id.topText);
-        dividerView = findViewById(R.id.divider);
-        bottomTextView = (TextView) findViewById(R.id.bottomText);
-        topImageView = (ImageView) findViewById(R.id.topImage);
-        bottomImageView = (ImageView) findViewById(R.id.bottomImage);
-
+    private void setupTopImageView() {
         if (topImageEnabled) {
             topImageView.setVisibility(VISIBLE);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                topImageView.setImageDrawable(getResources().getDrawable(topImageSource, context.getTheme()));
+                topImageView.setImageDrawable(getResources().getDrawable(topImageSource, getContext().getTheme()));
             } else {
                 topImageView.setImageDrawable(getResources().getDrawable(topImageSource));
             }
@@ -248,11 +267,13 @@ public class MinimalDivider extends LinearLayout {
         } else {
             topImageView.setVisibility(GONE);
         }
+    }
 
+    private void setupBottomImageView() {
         if (bottomImageEnabled) {
             bottomImageView.setVisibility(VISIBLE);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                bottomImageView.setImageDrawable(getResources().getDrawable(bottomImageSource, context.getTheme()));
+                bottomImageView.setImageDrawable(getResources().getDrawable(bottomImageSource, getContext().getTheme()));
             } else {
                 bottomImageView.setImageDrawable(getResources().getDrawable(bottomImageSource));
             }
@@ -268,7 +289,9 @@ public class MinimalDivider extends LinearLayout {
         } else {
             bottomImageView.setVisibility(GONE);
         }
+    }
 
+    private void setupTextViews() {
         // Set text content
         topTextView.setText(topTextValue);
         bottomTextView.setText(bottomTextValue);
@@ -282,8 +305,8 @@ public class MinimalDivider extends LinearLayout {
             topTextView.setTextAppearance(topTextStyle);
             bottomTextView.setTextAppearance(bottomTextStyle);
         } else {
-            topTextView.setTextAppearance(context, topTextStyle);
-            bottomTextView.setTextAppearance(context, bottomTextStyle);
+            topTextView.setTextAppearance(getContext(), topTextStyle);
+            bottomTextView.setTextAppearance(getContext(), bottomTextStyle);
         }
 
         // Set text size
@@ -301,7 +324,9 @@ public class MinimalDivider extends LinearLayout {
         if (bottomTextColor != DEFAULT_TEXT_COLOR) {
             bottomTextView.setTextColor(bottomTextColor);
         }
+    }
 
+    private void setupDividerView() {
         // Set divider line color
         dividerView.setBackgroundColor(dividerLineColor);
 
