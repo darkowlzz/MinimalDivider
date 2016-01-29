@@ -204,6 +204,14 @@ public class MinimalDivider extends LinearLayout {
         }
     }
 
+    private void setTextAppearance(TextView textView, int res) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            textView.setTextAppearance(res);
+        } else {
+            textView.setTextAppearance(getContext(), res);
+        }
+    }
+
     private void readStyledAttributes(TypedArray a) {
         try {
             topTextEnabled = a.getBoolean(R.styleable.MinimalDivider_topText_enabled, false);
@@ -301,13 +309,8 @@ public class MinimalDivider extends LinearLayout {
         bottomTextView.setVisibility(bottomTextEnabled ? VISIBLE : GONE);
 
         // Set text appearance style
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            topTextView.setTextAppearance(topTextStyle);
-            bottomTextView.setTextAppearance(bottomTextStyle);
-        } else {
-            topTextView.setTextAppearance(getContext(), topTextStyle);
-            bottomTextView.setTextAppearance(getContext(), bottomTextStyle);
-        }
+        setTextAppearance(topTextView, topTextStyle);
+        setTextAppearance(bottomTextView, bottomTextStyle);
 
         // Set text size
         if (topTextSize != DEFAULT_TEXT_SIZE) {
